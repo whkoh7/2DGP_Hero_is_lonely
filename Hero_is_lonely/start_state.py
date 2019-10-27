@@ -10,7 +10,7 @@ logo_time = 0.0
 
 def enter():
     global image
-    image = load_image('KakaoTalk_20191008_150544563.jpg')
+    image = load_image('KakaoTalk_20191008_150545170.jpg')
     pass
 
 

@@ -9,20 +9,16 @@ import main_state
 
 pauseImg = None
 
-name = "PauseState"
-
 frame = 0
 cnt = 0
 
 
 def enter():
-    global pauseImg
-    pauseImg = load_image('pause.png')
+    pass
 
 
 def exit():
-    global pauseImg
-    del pauseImg
+    pass
 
 
 def pause():
@@ -50,9 +46,5 @@ def draw():
     global frame
     global cnt
     clear_canvas()
-    main_state.boy.draw()
-    main_state.grass.draw()
-    frame = (frame + 1) % 2
-    pauseImg.clip_draw(frame * 900, 0, 900, 900, 400, 300)
-    delay(0.1)
+
     update_canvas()
