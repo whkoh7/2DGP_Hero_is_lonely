@@ -25,7 +25,7 @@ class Card:
 
     def click(self):
         self.image = load_image('vane.png')
-        print ('Click success')
+        print('Click success')
 
     def draw(self):
         self.image.draw(self.x, self.y)
@@ -61,10 +61,12 @@ def handle_events():
         elif event.type == SDL_KEYDOWN and event.key == SDLK_p:
             pause()
             game_framework.push_state(pause_state)
-        elif event.type == SDL_MOUSEBUTTONDOWN and event.type == SDL_BUTTON_LEFT:
-            if -800 < event.x < 800 and -600 < event.y < 600:
+        elif event.type == SDL_MOUSEBUTTONDOWN and event.button == SDL_BUTTON_LEFT:
+            if -250 < event.x < 350 and 350 < event.y < 450:
                 print('click success')
                 card.click()
+        elif 250 < event.x < 350 and 150 < event.y < 250:
+            card.click()
 
 
 def update():
