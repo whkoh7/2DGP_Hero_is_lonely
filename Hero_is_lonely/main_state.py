@@ -8,21 +8,35 @@ import game_framework
 import title_state
 import pause_state
 import animation_state
+
 name = "MainState"
 
 font = None
 card = None
 
+
 class Card:
     def __init__(self):
-        self.image=load_image('Penrir.png')
+        self.image = load_image('Penrir.png')
+        self.x, self.y = 300, 400
+
+    def update(self):
+        pass
+
+    def click(self):
+        self.image = load_image('vane.png')
+        print ('Click success')
 
     def draw(self):
-        self.image.draw(300,400)
+        self.image.draw(self.x, self.y)
 
 
 def enter():
-   pass
+    global card
+    card = Card()
+    print('change success')
+    pass
+
 
 def exit():
     pass
@@ -37,6 +51,7 @@ def resume():
 
 
 def handle_events():
+    global card
     events = get_events()
     for event in events:
         if event.type == SDL_QUIT:
@@ -46,12 +61,18 @@ def handle_events():
         elif event.type == SDL_KEYDOWN and event.key == SDLK_p:
             pause()
             game_framework.push_state(pause_state)
+        elif event.type == SDL_MOUSEBUTTONDOWN and event.type == SDL_BUTTON_LEFT:
+            if -800 < event.x < 800 and -600 < event.y < 600:
+                print('click success')
+                card.click()
 
 
 def update():
+    card.update()
     pass
 
 
 def draw():
     clear_canvas()
+    card.draw()
     update_canvas()
