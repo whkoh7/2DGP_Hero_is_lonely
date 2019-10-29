@@ -19,22 +19,24 @@ class Hero_Class:
 
     def __init__(self):
         self.x, self.y = 800 // 2, 90
-        if Hero.image is None:
-            Hero.image = load_image('Penrir.png')
+        if Hero_Class.image is None:
+            Hero_Class.image = load_image('pumpkin_dude.png')
+        self.frame = 0
         self.velocity = 0
         self.frame = 0
         self.event_que = []
-        self.cur_state.enter(self, None)
         pass
 
     def add_event(self, event):
         pass
 
     def update(self):
+        self.frame = (self.frame +1)% 8
+        self.x += 2
         pass
 
     def draw(self):
-        self.image.draw(self)
+        self.image.clip_draw(self.frame*16,0,16,32,self.x,self.y)
         pass
 
     def handle_event(self, event):

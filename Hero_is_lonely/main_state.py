@@ -8,19 +8,18 @@ import game_framework
 import title_state
 import pause_state
 import animation_state
+from Cards import Card
 from Hero import Hero_Class
 
 name = "MainState"
 
 hero = None
 font = None
-
-
-
+card = None
 
 
 def enter():
-    global card
+    global hero, card
     card = Card()
     hero = Hero_Class()
     print('change success')
@@ -28,8 +27,8 @@ def enter():
 
 
 def exit():
-    global hero
-    del hero
+    global hero, card
+    del hero, card
     pass
 
 
@@ -42,7 +41,7 @@ def resume():
 
 
 def handle_events():
-    global card
+    global hero, card
     events = get_events()
     for event in events:
         if event.type == SDL_QUIT:
@@ -53,21 +52,22 @@ def handle_events():
             pause()
             game_framework.push_state(pause_state)
         elif event.type == SDL_MOUSEBUTTONDOWN and event.button == SDL_BUTTON_LEFT:
-            if -250 < event.x < 350 and 350 < event.y < 450:
+            if card.x - 100 < event.x < card.x + 100 and 1024 - card.y - 100 < event.y < 1024 - card.y + 100:
                 print('click success')
                 card.click()
-        elif 250 < event.x < 350 and 150 < event.y < 250:
-            card.OntheMouse()
-        elif (event.x <= 250 or event.x >= 350) and (event.y <= 150 or event.y >= 250):
-            card.Mouse_is_Out()
+        elif card.clicked is True and event.type == SDL_MOUSEBUTTONUP and event.button == SDL_BUTTON_LEFT:
+            print('button up success')
+            card.Click_Up()
 
 
 def update():
     card.update()
+    hero.update()
     pass
 
 
 def draw():
     clear_canvas()
     card.draw()
+    hero.draw()
     update_canvas()
