@@ -1,26 +1,14 @@
 from plistlib import Data
-
 from pico2d import *
-
-Click_down, Click_up = range(2)
-
-key_event_table = {
-    (SDL_MOUSEBUTTONDOWN, SDL_BUTTON_LEFT): Click_down,
-    (SDL_MOUSEBUTTONUP, SDL_BUTTON_LEFT): Click_up,
-}
-
-next_state_table = {
-
-}
 
 
 class Hero_Class:
     image = None
 
     def __init__(self):
-        self.x, self.y = 800 // 2, 90
+        self.x, self.y = 200, 100
         if Hero_Class.image is None:
-            Hero_Class.image = load_image('pumpkin_dude.png')
+            Hero_Class.image = load_image('Hero_Sprite.png')
         self.frame = 0
         self.velocity = 0
         self.frame = 0
@@ -31,16 +19,14 @@ class Hero_Class:
         pass
 
     def update(self):
-        self.frame = (self.frame +1)% 8
-        self.x += 2
+        self.frame = (self.frame + 1) % 2
+        self.x += 0
+        delay(0.1)
         pass
 
     def draw(self):
-        self.image.clip_draw(self.frame*16,0,16,32,self.x,self.y)
+        self.image.clip_draw(self.frame * 30+8, 225, 30, 55, self.x, 800-self.y)
         pass
 
     def handle_event(self, event):
-        if (event.type, event.key) in key_event_table:
-            key_event = key_event_table[(event.type, event.key)]
-            self.add_event(key_event)
         pass

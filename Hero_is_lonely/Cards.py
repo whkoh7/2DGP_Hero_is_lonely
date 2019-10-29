@@ -8,7 +8,7 @@ class Card:
 
     def __init__(self):
         self.image = load_image('Card_Sample_Small.png')
-        self.x, self.y = 400, 200
+        self.x, self.y = 200, 200
         self.clicked = False
 
     def update(self):
