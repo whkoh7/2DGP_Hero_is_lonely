@@ -11,6 +11,7 @@ import animation_state
 from Cards import Card
 from Hero import Hero_Class
 from Monster import Monster_Class
+from BackGround import BackGround_Class
 
 name = "MainState"
 
@@ -18,13 +19,15 @@ hero = None
 font = None
 card = None
 monster = None
+background = None
 
 
 def enter():
-    global hero, card, monster
+    global hero, card, monster, background
     card = Card()
     hero = Hero_Class()
     monster = Monster_Class()
+    background = BackGround_Class()
     print('change success')
     pass
 
@@ -72,6 +75,7 @@ def update():
 
 def draw():
     clear_canvas()
+    background.draw()
     card.draw()
     hero.draw()
     monster.draw()

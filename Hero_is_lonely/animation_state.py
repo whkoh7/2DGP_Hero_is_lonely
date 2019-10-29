@@ -26,7 +26,7 @@ class Animate:
             self.frame = self.frame + 5
 
     def draw(self):
-        self.image.clip_draw(self.frame, 0, 800, 600, 400, 300)
+        self.image.clip_draw(self.frame, 0, 800, 600, 400, 400)
 
 
 name = "AnimationState"
