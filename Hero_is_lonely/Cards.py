@@ -22,5 +22,9 @@ class Card:
         self.image = load_image('Card_Sample_Small.png')
         self.clicked = False
 
+    def del_card(self):
+        self.x=-1000
+        self.y=-1000
+
     def draw(self):
         self.image.draw(self.x, self.y)

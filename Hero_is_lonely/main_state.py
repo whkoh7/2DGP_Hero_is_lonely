@@ -60,10 +60,12 @@ def handle_events():
         elif event.type == SDL_MOUSEBUTTONDOWN and event.button == SDL_BUTTON_LEFT:
             if card.x - 100 < event.x < card.x + 100 and 800 - card.y - 100 < event.y < 800 - card.y + 100:
                 print('click success')
+                monster.hp = monster.hp - hero.attack
                 card.click()
         elif card.clicked is True and event.type == SDL_MOUSEBUTTONUP and event.button == SDL_BUTTON_LEFT:
             print('button up success')
             card.Click_Up()
+            card.del_card()
 
 
 def update():

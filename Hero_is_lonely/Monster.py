@@ -6,12 +6,15 @@ class Monster_Class:
     image = None
 
     def __init__(self):
-        self.x, self.y = 500, 100
+        self.x, self.y = 600, 100
         if Monster_Class.image is None:
             Monster_Class.image = load_image('Ork_Monster.png')
         self.frame = 0
         self.velocity = 0
         self.frame = 0
+        self.hp = 100
+        self.attack = 50
+        self.HP = load_font('ALGER.TTF', 30)
         pass
 
     def add_event(self, event):
@@ -24,6 +27,7 @@ class Monster_Class:
         pass
 
     def draw(self):
-        self.image.clip_draw(self.frame * 60+8, 0, 60, 64, self.x, 800-self.y)
+        self.image.clip_draw(self.frame * 60 + 8, 0, 60, 64, self.x, 800 - self.y)
+        self.HP.draw(self.x - 50, 800 - self.y - 50, 'HP = %d' % self.hp, (255, 255, 255))
+        self.HP.draw(self.x - 50, 800 - self.y - 90, 'ATTACK = %d' % self.attack, (255, 255, 255))
         pass
-
