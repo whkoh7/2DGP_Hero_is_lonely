@@ -8,37 +8,28 @@ import game_framework
 import title_state
 import pause_state
 import animation_state
+from Hero import Hero_Class
 
 name = "MainState"
 
+hero = None
 font = None
-card = None
 
 
-class Card:
-    def __init__(self):
-        self.image = load_image('Penrir.png')
-        self.x, self.y = 300, 400
 
-    def update(self):
-        pass
-
-    def click(self):
-        self.image = load_image('vane.png')
-        print('Click success')
-
-    def draw(self):
-        self.image.draw(self.x, self.y)
 
 
 def enter():
     global card
     card = Card()
+    hero = Hero_Class()
     print('change success')
     pass
 
 
 def exit():
+    global hero
+    del hero
     pass
 
 
@@ -66,7 +57,9 @@ def handle_events():
                 print('click success')
                 card.click()
         elif 250 < event.x < 350 and 150 < event.y < 250:
-            card.click()
+            card.OntheMouse()
+        elif (event.x <= 250 or event.x >= 350) and (event.y <= 150 or event.y >= 250):
+            card.Mouse_is_Out()
 
 
 def update():
