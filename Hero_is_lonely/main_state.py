@@ -64,7 +64,7 @@ def handle_events():
         elif card.clicked is True and event.type == SDL_MOUSEBUTTONUP and event.button == SDL_BUTTON_LEFT:
             print('button up success')
             card.Click_Up()
-            monster.hp = monster.hp - hero.attack
+            monster.hp = monster.hp - hero.attack + monster.defense
             card.del_card()
 
 

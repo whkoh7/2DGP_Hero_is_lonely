@@ -15,7 +15,8 @@ class Hero_Class:
         self.event_que = []
         self.hp = 100
         self.attack = 50
-        self.HP = load_font('ALGER.TTF', 30)
+        self.Text = load_font('ALGER.TTF', 30)
+        self.defense=30
         pass
 
     def add_event(self, event):
@@ -29,8 +30,9 @@ class Hero_Class:
 
     def draw(self):
         self.image.clip_draw(self.frame * 30 + 8, 225, 30, 55, self.x, 800 - self.y)
-        self.HP.draw(self.x - 50, 800 - self.y - 50, 'HP = %d' % self.hp, (255, 255, 255))
-        self.HP.draw(self.x - 50, 800 - self.y - 90, 'ATTACK = %d' % self.attack, (255, 255, 255))
+        self.Text.draw(self.x - 50, 800 - self.y - 50, 'HP = %d' % self.hp, (255, 255, 255))
+        self.Text.draw(self.x - 50, 800 - self.y - 90, 'ATTACK = %d' % self.attack, (255, 255, 255))
+        self.Text.draw(self.x - 50, 800 - self.y - 130, 'DEF = %d' % self.defense, (255, 255, 255))
         pass
 
     def handle_event(self, event):
