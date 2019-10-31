@@ -8,7 +8,7 @@ class Monster_Class:
     def __init__(self):
         self.x, self.y = 600, 100
         if Monster_Class.image is None:
-            Monster_Class.image = load_image('Ork_Monster.png')
+            Monster_Class.image = load_image('img/Ork_Monster.png')
         self.frame = 0
         self.velocity = 0
         self.frame = 0

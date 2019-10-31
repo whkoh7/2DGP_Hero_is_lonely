@@ -14,7 +14,7 @@ animation = None
 class Animate:
     def __init__(self):
         self.x, self.y = 0, 0
-        self.image = load_image('KakaoTalk_20191008_150544563.jpg')
+        self.image = load_image('img/KakaoTalk_20191008_150544563.jpg')
         self.frame = 0
         pass
 

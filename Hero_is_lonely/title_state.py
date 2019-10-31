@@ -9,7 +9,7 @@ image = None
 
 def enter():
     global image
-    image = load_image('sm_5aba147bcacf2.png')
+    image = load_image('img/sm_5aba147bcacf2.png')
     pass
 
 

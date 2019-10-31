@@ -8,7 +8,7 @@ class Hero_Class:
     def __init__(self):
         self.x, self.y = 200, 100
         if Hero_Class.image is None:
-            Hero_Class.image = load_image('Hero_Sprite.png')
+            Hero_Class.image = load_image('img/Hero_Sprite.png')
         self.frame = 0
         self.velocity = 0
         self.frame = 0
