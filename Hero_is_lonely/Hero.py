@@ -10,8 +10,6 @@ class Hero_Class:
         if Hero_Class.image is None:
             Hero_Class.image = load_image('img/Hero_Sprite.png')
         self.frame = 0
-        self.velocity = 0
-        self.frame = 0
         self.event_que = []
         self.hp = 100
         self.attack = 50
