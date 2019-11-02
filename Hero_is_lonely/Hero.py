@@ -10,11 +10,10 @@ class Hero_Class:
         if Hero_Class.image is None:
             Hero_Class.image = load_image('img/Hero_Sprite.png')
         self.frame = 0
-        self.event_que = []
         self.hp = 100
         self.attack = 50
-        self.Text = load_font('ALGER.TTF', 30)
         self.defense=30
+        self.Text = load_font('ALGER.TTF', 30)
         pass
 
     def add_event(self, event):
