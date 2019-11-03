@@ -9,7 +9,7 @@ class Card:
     image = None
 
     def __init__(self):
-        self.image = load_image('img/Card_Sample_Small.png')
+        self.image = None
         self.x, self.y = 200, 200
         self.clicked = False
         self.Available = False  # 덱에 들어가있는지

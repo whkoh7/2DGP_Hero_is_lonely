@@ -28,6 +28,7 @@ def enter():
     hero = Hero_Class()
     monster = Monster_Class()
     background = BackGround_Class()
+    card.image = load_image('img/Card_Sample_Small.png')
     print('change success')
     pass
 
