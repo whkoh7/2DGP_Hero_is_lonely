@@ -7,7 +7,7 @@ class Card:
     image = None
 
     def __init__(self):
-        self.image = load_image('Card_Sample_Small.png')
+        self.image = load_image('img/Card_Sample_Small.png')
         self.x, self.y = 200, 200
         self.clicked = False
 
@@ -15,11 +15,11 @@ class Card:
         pass
 
     def click(self):
-        self.image = load_image('Card_Sample_Big.png')
+        self.image = load_image('img/Card_Sample_Big.png')
         self.clicked = True
 
     def Click_Up(self):
-        self.image = load_image('Card_Sample_Small.png')
+        self.image = load_image('img/Card_Sample_Small.png')
         self.clicked = False
 
     def del_card(self):
