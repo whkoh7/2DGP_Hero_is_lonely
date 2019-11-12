@@ -15,6 +15,7 @@ class Card:
         self.Available = False  # 덱에 들어가있는지
         self.exposed = False  # 핸드에 있는지
         # self.H_HP, self.H_ATK, self.H_DEF, self.M_HP, self.M_ATK, self.M_DEF = 0, 0, 0, 0, 0, 0
+        
 
     def update(self):
         pass
