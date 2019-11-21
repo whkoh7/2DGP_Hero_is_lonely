@@ -1,5 +1,4 @@
 from plistlib import Data
-
 from pico2d import *
 
 
@@ -10,6 +9,9 @@ class Card:
         self.image = load_image('img/Card_Sample_Small.png')
         self.x, self.y = 200, 200
         self.clicked = False
+
+    def get_bb(self):
+        return self.x-100,self.y-140,self.x+100,self.y+140
 
     def update(self):
         pass
@@ -28,3 +30,5 @@ class Card:
 
     def draw(self):
         self.image.draw(self.x, self.y)
+        draw_rectangle(*self.get_bb())
+

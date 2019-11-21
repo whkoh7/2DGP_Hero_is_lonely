@@ -3,16 +3,16 @@ import json
 import os
 
 from pico2d import *
-
 import game_framework
-import title_state
-import pause_state
-import animation_state
+import game_world
+
 from Cards import Card
 from Hero import Hero_Class
 from Monster import Monster_Class
 from BackGround import BackGround_Class
+from Mouse import Mouse
 
+Game_Size_x, Game_Size_y = 800, 800
 name = "MainState"
 
 hero = None
@@ -20,21 +20,47 @@ font = None
 card = None
 monster = None
 background = None
+mouse = None
+
+
+def collide(a, b):
+    # fill here
+    left_a, bottom_a, right_a, top_a = a.get_bb()
+    left_b, bottom_b, right_b, top_b = b.get_bb()
+
+    if left_a > right_b: return False
+    if right_a < left_b: return False
+    if top_a < bottom_b: return False
+    if bottom_a > top_b: return False
+
+    return True
 
 
 def enter():
-    global hero, card, monster, background
-    card = Card()
+    global hero
     hero = Hero_Class()
+    game_world.add_object(hero, 1)
+
+    global card
+    card = Card()
+    game_world.add_object(card, 1)
+
+    global monster
     monster = Monster_Class()
+    game_world.add_object(monster, 1)
+
+    global background
     background = BackGround_Class()
-    print('change success')
+    game_world.add_object(background, 0)
+
+    global mouse
+    mouse = Mouse()
+    game_world.add_object(mouse, 1)
     pass
 
 
 def exit():
-    global hero, card, monster
-    del hero, card, monster
+    game_world.clear()
     pass
 
 
@@ -47,38 +73,36 @@ def resume():
 
 
 def handle_events():
-    global hero, card, monster
     events = get_events()
     for event in events:
         if event.type == SDL_QUIT:
             game_framework.quit()
         elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
-            game_framework.change_state(title_state)
-        elif event.type == SDL_KEYDOWN and event.key == SDLK_p:
-            pause()
-            game_framework.push_state(pause_state)
+            game_framework.quit()
+        elif event.type == SDL_MOUSEMOTION:
+            mouse.x, mouse.y = event.x, Game_Size_y - 1 - event.y
         elif event.type == SDL_MOUSEBUTTONDOWN and event.button == SDL_BUTTON_LEFT:
-            if card.x - 100 < event.x < card.x + 100 and 800 - card.y - 100 < event.y < 800 - card.y + 100:
-                print('click success')
-                card.click()
-        elif card.clicked is True and event.type == SDL_MOUSEBUTTONUP and event.button == SDL_BUTTON_LEFT:
-            print('button up success')
-            card.Click_Up()
-            monster.hp = monster.hp - hero.attack + monster.defense
-            card.del_card()
+            mouse.Down = True
+            mouse.Up = False
+        elif event.type == SDL_MOUSEBUTTONUP and event.button == SDL_BUTTON_LEFT:
+            mouse.Down = False
+            mouse.Up = True
+        else:
+            hero.handle_event(event)
 
 
 def update():
-    card.update()
-    hero.update()
-    monster.update()
+    for game_object in game_world.all_objects():
+        game_object.update()
+
+    if collide(mouse,card) and mouse.Down==True:
+        card.click()
+    if collide(mouse,card) and
     pass
 
 
 def draw():
     clear_canvas()
-    background.draw()
-    card.draw()
-    hero.draw()
-    monster.draw()
+    for game_object in game_world.all_objects():
+        game_object.draw()
     update_canvas()
