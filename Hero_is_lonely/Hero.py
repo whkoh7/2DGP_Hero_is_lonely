@@ -12,6 +12,9 @@ class Hero_Class:
         self.frame = 0
         self.hp = 100
         self.attack = 50
+        self.Text = load_font('ALGER.TTF', 30)
+        self.defense = 30
+        self.tick = 0
         self.defense=30
         self.Text = load_font('ALGER.TTF', 30)
         pass
@@ -20,9 +23,10 @@ class Hero_Class:
         pass
 
     def update(self):
-        self.frame = (self.frame + 1) % 2
-        self.x += 0
-        delay(0.1)
+        self.tick+=1
+        if self.tick > 100:
+            self.frame = (self.frame + 1) % 2
+            self.tick = 0
         pass
 
     def draw(self):
