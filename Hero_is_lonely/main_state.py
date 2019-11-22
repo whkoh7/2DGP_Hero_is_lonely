@@ -95,10 +95,12 @@ def update():
     for game_object in game_world.all_objects():
         game_object.update()
 
-    if collide(mouse,card) and mouse.Down==True:
+    if collide(mouse, card):
         card.click()
-    if collide(mouse,card) and
-    pass
+        if mouse.Down:
+            card.del_card()
+    else:
+        card.click_up()
 
 
 def draw():

@@ -17,12 +17,14 @@ class Card:
         pass
 
     def click(self):
-        self.image = load_image('img/Card_Sample_Big.png')
-        self.clicked = True
+        if self.clicked==False:
+            self.y+=50
+            self.clicked = True
 
-    def Click_Up(self):
-        self.image = load_image('img/Card_Sample_Small.png')
-        self.clicked = False
+    def click_up(self):
+        if self.clicked:
+            self.y-=50
+            self.clicked = False
 
     def del_card(self):
         self.x=-1000
