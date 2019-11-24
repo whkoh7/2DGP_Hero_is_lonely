@@ -17,7 +17,7 @@ name = "MainState"
 
 hero = None
 font = None
-card = None
+cards = []
 monster = None
 background = None
 mouse = None
@@ -41,9 +41,14 @@ def enter():
     hero = Hero_Class()
     game_world.add_object(hero, 1)
 
-    global card
-    card = Card()
-    game_world.add_object(card, 1)
+    global cards
+    cards = [Card() for i in range(5)]
+    i = 0
+    for card in cards:
+        card.x += 240 * i
+        i += 1
+
+    game_world.add_objects(cards, 1)
 
     global monster
     monster = Monster_Class()
@@ -56,9 +61,16 @@ def enter():
     global mouse
     mouse = Mouse()
     game_world.add_object(mouse, 1)
-    card.image = load_image('img/Card_Sample_Small.png')
     print('change success')
     pass
+
+
+def get_hero():
+    return hero
+
+
+def get_monster():
+    return monster
 
 
 def exit():
@@ -72,7 +84,6 @@ def pause():
 
 def resume():
     pass
-
 
 def handle_events():
     events = get_events()
@@ -97,12 +108,13 @@ def update():
     for game_object in game_world.all_objects():
         game_object.update()
 
-    if collide(mouse, card):
-        card.click()
-        if mouse.Down:
-            card.del_card()
-    else:
-        card.click_up()
+    for card in cards:
+        if collide(mouse, card):
+            card.click()
+            if mouse.Down:
+                card.del_card()
+        else:
+            card.click_up()
 
 
 def draw():

@@ -1,6 +1,7 @@
 from plistlib import Data
 from pico2d import *
 
+
 class BackGround_Class:
     def __init__(self):
         self.x, self.y = 0, 0
@@ -12,4 +13,4 @@ class BackGround_Class:
         pass
 
     def draw(self):
-        self.image.clip_draw(self.frame, 0, 800, 800, 400, 400)
+        self.image.clip_draw(100, 0, 1280, 800, 640, 400)
