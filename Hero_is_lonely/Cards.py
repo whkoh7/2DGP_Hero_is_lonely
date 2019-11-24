@@ -50,6 +50,8 @@ class Card:
             hero.ATK += self.H_ATK
             hero.DEF += self.H_DEF
             monster.HP -= hero.ATK * self.C_NUM
+            if self.C_NUM != 0:
+                monster.HP += monster.DEF
             monster.ATK += self.M_ATK
             monster.DEF += self.M_DEF
         self.fall_speed = 3

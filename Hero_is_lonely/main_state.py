@@ -47,7 +47,7 @@ def enter():
     deck = Deck()
 
     global cards
-    cards = [Card() for i in range(5)]
+    cards = [Card() for i in range(deck.card_count)]
     deck.card_stat_load()
     deck.card_img_load()
     game_world.add_objects(cards, 1)

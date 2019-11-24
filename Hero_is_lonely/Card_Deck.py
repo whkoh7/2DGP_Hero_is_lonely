@@ -2,10 +2,11 @@ from pico2d import *
 from Cards import Card
 import main_state
 
+
 # 카드 객체를 불러와서 각각 스탯과 이미지 로드해주는 기능
 
-class Deck:
 
+class Deck:
     def __init__(self):
         # card_num, H_HP, H_ATK, H_DEF, M_HP, M_ATK, M_DEF, C_NUM 선언
         self.card_list = [0, 0, 0, 0, 0, 0, 0, 0.9,
@@ -14,7 +15,8 @@ class Deck:
                           3, 0, 0, 0, 0, 0, 0, 1,
                           4, 0, 15, 0, 0, 0, 0, 0,
                           ]
-        pass
+        self.card_stat_count = 8
+        self.card_count=5
 
     def card_img_load(self):
         # card_num 별로 이미지 불러오는 부분
@@ -38,12 +40,12 @@ class Deck:
         i = 0
         for card in cards:
             card.x += 240 * i
-            card.card_num = self.card_list[i * 8 + 0]
-            card.H_HP = self.card_list[i * 8 + 1]
-            card.H_ATK = self.card_list[i * 8 + 2]
-            card.H_DEF = self.card_list[i * 8 + 3]
-            card.M_HP = self.card_list[i * 8 + 4]
-            card.M_ATK = self.card_list[i * 8 + 5]
-            card.M_DEF = self.card_list[i * 8 + 6]
-            card.C_NUM = self.card_list[i * 8 + 7]
+            card.card_num = self.card_list[i * self.card_stat_count + 0]
+            card.H_HP = self.card_list[i * self.card_stat_count + 1]
+            card.H_ATK = self.card_list[i * self.card_stat_count + 2]
+            card.H_DEF = self.card_list[i * self.card_stat_count + 3]
+            card.M_HP = self.card_list[i * self.card_stat_count + 4]
+            card.M_ATK = self.card_list[i * self.card_stat_count + 5]
+            card.M_DEF = self.card_list[i * self.card_stat_count + 6]
+            card.C_NUM = self.card_list[i * self.card_stat_count + 7]
             i += 1
