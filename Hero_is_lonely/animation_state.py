@@ -10,7 +10,7 @@ import main_state
 
 animation = None
 
-
+# 초반 부분 애니메이션 구현, 나중에 시간이 남으면 구현할 예정
 class Animate:
     def __init__(self):
         self.x, self.y = 0, 0

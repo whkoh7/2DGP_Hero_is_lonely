@@ -1,7 +1,7 @@
 from plistlib import Data
 from pico2d import *
 
-
+# 배경화면 불러오는 파일, 나중에 화면 움직이는거 구현할 때 건들 예정
 class BackGround_Class:
     def __init__(self):
         self.x, self.y = 0, 0
