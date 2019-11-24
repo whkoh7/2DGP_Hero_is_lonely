@@ -14,19 +14,19 @@ animation = None
 class Animate:
     def __init__(self):
         self.x, self.y = 0, 0
-        self.image = load_image('img/Background_Sample.jpg')
+        self.image = load_image('img/animaition.jpg')
         self.frame = 0
         pass
 
     def update(self):
-        if self.frame > 266:
+        if self.frame > 100:
             self.frame = 0
             game_framework.change_state(main_state)
         else:
             self.frame = self.frame + 5
 
     def draw(self):
-        self.image.clip_draw(self.frame, 0, 800, 800, 400, 400)
+        self.image.clip_draw(self.frame+200, 0, 1280, 800, 640, 400)
 
 
 name = "AnimationState"
