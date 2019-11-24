@@ -11,6 +11,7 @@ from Hero import Hero_Class
 from Monster import Monster_Class
 from BackGround import BackGround_Class
 from Mouse import Mouse
+from Card_Deck import Card_Deck_List
 
 Game_Size_x, Game_Size_y = 800, 800
 name = "MainState"
@@ -46,6 +47,13 @@ def enter():
     i = 0
     for card in cards:
         card.x += 240 * i
+        card.H_HP = Card_Deck_List[i * 7 + 0]
+        card.H_ATK = Card_Deck_List[i * 7 + 1]
+        card.H_DEF = Card_Deck_List[i * 7 + 2]
+        card.M_HP = Card_Deck_List[i * 7 + 3]
+        card.M_ATK = Card_Deck_List[i * 7 + 4]
+        card.M_DEF = Card_Deck_List[i * 7 + 5]
+        card.C_NUM = Card_Deck_List[i * 7 + 6]
         i += 1
 
     game_world.add_objects(cards, 1)
@@ -84,6 +92,7 @@ def pause():
 
 def resume():
     pass
+
 
 def handle_events():
     events = get_events()
