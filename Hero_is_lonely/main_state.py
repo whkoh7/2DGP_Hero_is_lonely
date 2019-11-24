@@ -11,7 +11,7 @@ from Hero import Hero_Class
 from Monster import Monster_Class
 from BackGround import BackGround_Class
 from Mouse import Mouse
-from Card_Deck import Card_Deck_List
+from Card_Deck import Deck
 
 Game_Size_x, Game_Size_y = 800, 800
 name = "MainState"
@@ -22,6 +22,7 @@ cards = []
 monster = None
 background = None
 mouse = None
+deck = None
 
 
 def collide(a, b):
@@ -42,20 +43,13 @@ def enter():
     hero = Hero_Class()
     game_world.add_object(hero, 1)
 
+    global deck
+    deck = Deck()
+
     global cards
     cards = [Card() for i in range(5)]
-    i = 0
-    for card in cards:
-        card.x += 240 * i
-        card.H_HP = Card_Deck_List[i * 7 + 0]
-        card.H_ATK = Card_Deck_List[i * 7 + 1]
-        card.H_DEF = Card_Deck_List[i * 7 + 2]
-        card.M_HP = Card_Deck_List[i * 7 + 3]
-        card.M_ATK = Card_Deck_List[i * 7 + 4]
-        card.M_DEF = Card_Deck_List[i * 7 + 5]
-        card.C_NUM = Card_Deck_List[i * 7 + 6]
-        i += 1
-
+    deck.card_stat_load()
+    deck.card_img_load()
     game_world.add_objects(cards, 1)
 
     global monster
@@ -80,6 +74,8 @@ def get_hero():
 def get_monster():
     return monster
 
+def get_cards():
+    return cards
 
 def exit():
     game_world.clear()
