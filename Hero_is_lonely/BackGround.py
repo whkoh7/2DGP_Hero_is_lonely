@@ -18,7 +18,8 @@ class BackGround_Class:
 
 
 ui_names = ['Stat', 'Exit', 'Pause']
-ui_pos=[800,600,900,600,100,600]
+ui_pos = [215, 570, 900, 600, 100, 600]
+
 
 class Ui_Class:
     images = None
@@ -27,10 +28,15 @@ class Ui_Class:
         if Ui_Class.images is None:
             Ui_Class.images = {}
             for name in ui_names:
-                Ui_Class.images[name]=[load_image("/img/"+name+"_UI_img.png")]
+                Ui_Class.images[name] = [load_image("img/" + name + "_UI_img.png")]
 
     def __init__(self):
-        self.load_images()
+        self.x_size = 150
+        self.y_size = 200
+        self.load_image()
+
+    def update(self):
+        pass
 
     def draw(self):
-        Ui_Class.images['Stat'].draw(ui_pos[0],ui_pos[1],89,87)
+        Ui_Class.images['Stat'][0].draw(ui_pos[0], ui_pos[1], self.x_size, self.y_size)

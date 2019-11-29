@@ -32,6 +32,6 @@ class Monster_Class:
     def draw(self):
         self.image.clip_draw(self.frame * 60 + 8, 0, 60, 64, self.x, 800 - self.y)
         self.Text.draw(self.x - 50, 800 - self.y - 50, 'HP = %d' % self.HP, (255, 255, 255))
-        self.Text.draw(self.x - 50, 800 - self.y - 90, 'ATTACK = %d' % self.ATK, (255, 255, 255))
+        self.Text.draw(self.x - 50, 800 - self.y - 90, 'ATK = %d' % self.ATK, (255, 255, 255))
         self.Text.draw(self.x - 50, 800 - self.y - 130, 'DEF = %d' % self.DEF, (255, 255, 255))
         pass

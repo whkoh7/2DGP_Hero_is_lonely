@@ -10,6 +10,7 @@ from Cards import Card
 from Hero import Hero_Class
 from Monster import Monster_Class
 from BackGround import BackGround_Class
+from BackGround import Ui_Class
 from Mouse import Mouse
 from Card_Deck import Deck
 
@@ -21,6 +22,7 @@ font = None
 cards = []
 monster = None
 background = None
+ui=None
 mouse = None
 deck = None
 
@@ -59,6 +61,10 @@ def enter():
     global background
     background = BackGround_Class()
     game_world.add_object(background, 0)
+
+    global ui
+    ui=Ui_Class()
+    game_world.add_object(ui,0)
 
     global mouse
     mouse = Mouse()
