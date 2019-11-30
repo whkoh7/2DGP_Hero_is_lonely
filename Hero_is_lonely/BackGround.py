@@ -17,8 +17,8 @@ class BackGround_Class:
         self.image.clip_draw(100, 0, 1280, 800, 640, 400)
 
 
-ui_names = ['Stat', 'Exit', 'Pause']
-ui_pos = [215, 570, 900, 600, 100, 600]
+ui_names = ['Box', 'Exit', 'Pause']
+ui_pos = [215, 570, 1100, 700, 1000, 700]
 
 
 class Ui_Class:
@@ -31,12 +31,17 @@ class Ui_Class:
                 Ui_Class.images[name] = [load_image("img/" + name + "_UI_img.png")]
 
     def __init__(self):
-        self.x_size = 150
-        self.y_size = 200
+        self.box_x_size = 150
+        self.box_y_size = 200
+        self.ui_x_size =89
+        self.ui_y_size =87
         self.load_image()
 
     def update(self):
         pass
 
     def draw(self):
-        Ui_Class.images['Stat'][0].draw(ui_pos[0], ui_pos[1], self.x_size, self.y_size)
+        Ui_Class.images['Box'][0].draw(ui_pos[0], ui_pos[1], self.box_x_size, self.box_y_size)
+        Ui_Class.images['Exit'][0].draw(ui_pos[2],ui_pos[3],self.ui_x_size,self.ui_y_size)
+        Ui_Class.images['Pause'][0].draw(ui_pos[4],ui_pos[5],self.ui_x_size,self.ui_y_size)
+
