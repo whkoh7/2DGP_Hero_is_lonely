@@ -18,7 +18,7 @@ class BackGround_Class:
 
 
 ui_names = ['Box', 'Exit', 'Pause']
-ui_pos = [215, 570, 1100, 700, 1000, 700]
+ui_pos = [215, 470, 1100, 750, 1000, 750]
 
 
 class Ui_Class:
@@ -33,8 +33,8 @@ class Ui_Class:
     def __init__(self):
         self.box_x_size = 150
         self.box_y_size = 200
-        self.ui_x_size =89
-        self.ui_y_size =87
+        self.ui_x_size =69
+        self.ui_y_size =67
         self.load_image()
 
     def update(self):
@@ -42,6 +42,7 @@ class Ui_Class:
 
     def draw(self):
         Ui_Class.images['Box'][0].draw(ui_pos[0], ui_pos[1], self.box_x_size, self.box_y_size)
+        Ui_Class.images['Box'][0].draw(ui_pos[0]+875, ui_pos[1], self.box_x_size, self.box_y_size)
         Ui_Class.images['Exit'][0].draw(ui_pos[2],ui_pos[3],self.ui_x_size,self.ui_y_size)
         Ui_Class.images['Pause'][0].draw(ui_pos[4],ui_pos[5],self.ui_x_size,self.ui_y_size)
 
