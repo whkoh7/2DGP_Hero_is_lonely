@@ -31,7 +31,7 @@ class Deck:
             elif card.card_num == 3:
                 card.image = load_image('img/Card_Sample_Small_1.png')
             elif card.card_num == 4:
-                card.image = load_image('img/Card_Sample_Small_2.png')
+                card.image = load_image('img/Card_Sample.png')
 
     def card_stat_load(self):
         # main 에서 카드 불러오기

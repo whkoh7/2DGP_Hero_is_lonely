@@ -29,9 +29,9 @@ class Hero_Class:
 
     def draw(self):
         self.image.clip_draw(self.frame * 30 + 8, 225, 30, 55, self.x, 800 - self.y)
-        self.Text.draw(self.x - 50, 800 - self.y - 50, 'HP = %d' % self.HP, (255, 255, 255))
-        self.Text.draw(self.x - 50, 800 - self.y - 90, 'ATK = %d' % self.ATK, (255, 255, 255))
-        self.Text.draw(self.x - 50, 800 - self.y - 130, 'DEF = %d' % self.DEF, (255, 255, 255))
+        self.Text.draw(self.x - 50, 800 - self.y - 70, 'HP = %d' % self.HP, (255, 255, 255))
+        self.Text.draw(self.x - 50, 800 - self.y - 110, 'ATK = %d' % self.ATK, (255, 255, 255))
+        self.Text.draw(self.x - 50, 800 - self.y - 150, 'DEF = %d' % self.DEF, (255, 255, 255))
         pass
 
     def handle_event(self, event):
