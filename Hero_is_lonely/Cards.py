@@ -1,5 +1,4 @@
 from plistlib import Data
-
 from Hero import Hero_Class
 from Monster import Monster_Class
 from pico2d import *
@@ -35,12 +34,6 @@ class Card:
             if self.fall_speed is 0:
                 self.y -= 50
                 self.clicked = False
-
-    def Card_In_Hand(self):
-        pass
-
-    def Card_Input(self):
-        pass
 
     def del_card(self):
         if self.fall_speed is 0:

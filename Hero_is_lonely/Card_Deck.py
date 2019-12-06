@@ -4,8 +4,6 @@ import main_state
 
 
 # 카드 객체를 불러와서 각각 스탯과 이미지 로드해주는 기능
-
-
 class Deck:
     def __init__(self):
         # card_num, H_HP, H_ATK, H_DEF, M_HP, M_ATK, M_DEF, C_NUM 선언
