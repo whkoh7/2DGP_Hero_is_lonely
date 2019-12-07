@@ -11,5 +11,9 @@ class Hand:
         self.num = 5  # 카드 총 개수 : 5개
         self.location_x = [150, 390, 630, 870, 1110]
         self.location_y = 200
-
+        self.hand = [0, 0, 0, 0, 0]
         pass
+    def input_card(self):
+        cards = main_state.get_cards()
+        for card in cards:
+            if card.

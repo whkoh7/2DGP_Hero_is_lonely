@@ -14,7 +14,7 @@ class Card:
     def __init__(self):
         self.fall_speed = 0
         self.card_num = 0
-        self.x, self.y = 150, 200
+        self.x, self.y = 150, -200
         self.clicked = False
         self.Text = load_font('ALGER.TTF', 20)
         self.H_HP, self.H_ATK, self.H_DEF, self.M_HP, self.M_ATK, self.M_DEF, self.C_NUM = \
