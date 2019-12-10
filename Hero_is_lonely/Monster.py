@@ -28,7 +28,6 @@ class Monster_Class:
     def monster_act(self):
         hero = main_state.get_hero()
         act = randint(0, 4)
-        act = 1
         if act is 0:
             self.HP += 50
             self.buf = True

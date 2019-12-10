@@ -2,6 +2,7 @@ import random
 import json
 import os
 import clear_state
+import show_deck_state
 
 from pico2d import *
 import game_framework
@@ -92,16 +93,20 @@ def get_monster():
 def get_cards():
     return cards
 
+
 def get_hand():
     return hand
+
 
 def exit():
     game_world.clear()
     pass
 
+
 def clear():
     game_world.clear()
     game_framework.change_state()
+
 
 def pause():
     pass
@@ -134,7 +139,7 @@ def update():
     for game_object in game_world.all_objects():
         game_object.update()
 
-    if monster.HP <=0:
+    if monster.HP <= 0:
         game_framework.change_state(clear_state)
 
     for card in cards:
@@ -145,11 +150,10 @@ def update():
                 if card.C_NUM > 0:
                     monster.hit = True
                     monster.velocity = 1
-                if card.H_ATK >0 or card.H_DEF>0 or card.H_HP > 0 :
+                if card.H_ATK > 0 or card.H_DEF > 0 or card.H_HP > 0:
                     hero.buf = True
                     hero.y_move = 1
-        else:
-            card.click_up()
+
 
 
 def draw():

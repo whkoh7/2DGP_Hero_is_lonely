@@ -20,8 +20,8 @@ class BackGround_Class:
         self.image.clip_draw(100, 0, 1280, 800, 640, 400)
 
 
-ui_names = ['Box', 'Exit', 'Pause']
-ui_pos = [215, 470, 1100, 750, 1000, 750]
+ui_names = ['Box', 'Exit', 'Pause', 'Card']
+ui_pos = [215, 470, 1100, 750, 1000, 750, 635, 200]
 
 
 class Ui_Class:
@@ -48,3 +48,4 @@ class Ui_Class:
         Ui_Class.images['Box'][0].draw(ui_pos[0]+875, ui_pos[1], self.box_x_size, self.box_y_size)
         Ui_Class.images['Exit'][0].draw(ui_pos[2],ui_pos[3],self.ui_x_size,self.ui_y_size)
         Ui_Class.images['Pause'][0].draw(ui_pos[4],ui_pos[5],self.ui_x_size,self.ui_y_size)
+        Ui_Class.images['Card'][0].draw(ui_pos[6], ui_pos[7], 1200,280)
