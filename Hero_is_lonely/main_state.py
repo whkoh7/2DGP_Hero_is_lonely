@@ -13,6 +13,7 @@ from BackGround import BackGround_Class
 from BackGround import Ui_Class
 from Mouse import Mouse
 from Card_Deck import Deck
+from Hand import Hand
 
 Game_Size_x, Game_Size_y = 800, 800
 name = "MainState"
@@ -25,7 +26,7 @@ background = None
 ui=None
 mouse = None
 deck = None
-
+hand = None
 
 def collide(a, b):
     # fill here
@@ -70,6 +71,11 @@ def enter():
     mouse = Mouse()
     game_world.add_object(mouse, 1)
     print('change success')
+
+    global hand
+    hand = Hand()
+    game_world.add_object(hand,1)
+    hand.hand_init()
     pass
 
 

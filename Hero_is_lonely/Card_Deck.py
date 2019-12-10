@@ -6,15 +6,15 @@ import main_state
 # 카드 객체를 불러와서 각각 스탯과 이미지 로드해주는 기능
 class Deck:
     def __init__(self):
-        # card_num, H_HP, H_ATK, H_DEF, M_HP, M_ATK, M_DEF, C_NUM 선언
-        self.card_list = [0, 0, 0, 0, 0, 0, 0, 0.9,
-                          1, 0, 10, 10, 0, 0, 0, 0,
-                          2, 10, 0, 0, 0, 0, 0, 0,
-                          3, 0, 0, 0, 0, 0, 0, 1,
-                          4, 0, 15, 0, 0, 0, 0, 0,
+        # card_num, H_HP, H_ATK, H_DEF, M_HP, M_ATK, M_DEF, C_NUM, activated 선언
+        self.card_list = [0, 0, 0, 0, 0, 0, 0, 0.9, 0,
+                          1, 0, 10, 10, 0, 0, 0, 0, 0,
+                          2, 10, 0, 0, 0, 0, 0, 0, 0,
+                          3, 0, 0, 0, 0, 0, 0, 1, 0,
+                          4, 0, 15, 0, 0, 0, 0, 0, 0
                           ]
-        self.card_stat_count = 8
-        self.card_count=5
+        self.card_stat_count = 9
+        self.card_count = 5
 
     def card_img_load(self):
         # card_num 별로 이미지 불러오는 부분
@@ -46,4 +46,5 @@ class Deck:
             card.M_ATK = self.card_list[i * self.card_stat_count + 5]
             card.M_DEF = self.card_list[i * self.card_stat_count + 6]
             card.C_NUM = self.card_list[i * self.card_stat_count + 7]
+            card.C_ACTIVATED = self.card_list[i*self.card_stat_count+8]
             i += 1
