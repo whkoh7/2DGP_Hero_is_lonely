@@ -8,6 +8,9 @@ class BackGround_Class:
         self.x, self.y = 0, 0
         self.image = load_image('img/Background_Sample.jpg')
         self.frame = 0
+        self.bgm = load_music('img/Tribal_Affair.mp3')
+        self.bgm.set_volume(60)
+        self.bgm.repeat_play()
         pass
 
     def update(self):

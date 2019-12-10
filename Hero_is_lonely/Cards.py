@@ -37,6 +37,10 @@ class Card:
                 self.clicked = False
 
     def del_card(self):
+        hand = main_state.get_hand()
+        for i in range(5):
+            if hand.hand[i] is self.card_num:
+                hand.new_card(i)
         if self.fall_speed is 0:
             hero = main_state.get_hero()
             monster = main_state.get_monster()
@@ -54,20 +58,21 @@ class Card:
     def update(self):
         if self.C_ACTIVATED is 0:
             self.y = -200
-        elif self.C_ACTIVATED is 1 and self.y <= 200:
+        elif self.C_ACTIVATED is 1 and self.y < 195:
             self.y += 5
+        elif self.C_ACTIVATED is 1 and self.y >= 196:
+            self.y = 200
         if self.y > -200:
             self.y -= self.fall_speed
         pass
 
     def draw(self):
         self.image.draw(self.x, self.y)
-        draw_rectangle(*self.get_bb())
-        #self.Text.draw(self.x - 100, self.y + 140, '%.1f' % self.H_HP, (255, 255, 255))
-        #self.Text.draw(self.x - 70, self.y + 140, '%.1f' % self.H_ATK, (255, 255, 255))
-        #self.Text.draw(self.x - 40, self.y + 140, '%.1f' % self.H_DEF, (255, 255, 255))
-        #self.Text.draw(self.x - 10, self.y + 140, '%.1f' % self.M_HP, (255, 255, 255))
-        #self.Text.draw(self.x + 20, self.y + 140, '%.1f' % self.M_ATK, (255, 255, 255))
-        #self.Text.draw(self.x + 50, self.y + 140, '%.1f' % self.M_DEF, (255, 255, 255))
-        #self.Text.draw(self.x + 80, self.y + 140, '%.1f' % self.C_NUM, (255, 255, 255))
-
+        #draw_rectangle(*self.get_bb())
+        self.Text.draw(self.x - 100, self.y + 140, '%.1f' % self.H_HP, (255, 255, 255))
+        self.Text.draw(self.x - 70, self.y + 140, '%.1f' % self.H_ATK, (255, 255, 255))
+        self.Text.draw(self.x - 40, self.y + 140, '%.1f' % self.H_DEF, (255, 255, 255))
+        self.Text.draw(self.x - 10, self.y + 140, '%.1f' % self.M_HP, (255, 255, 255))
+        self.Text.draw(self.x + 20, self.y + 140, '%.1f' % self.M_ATK, (255, 255, 255))
+        self.Text.draw(self.x + 50, self.y + 140, '%.1f' % self.M_DEF, (255, 255, 255))
+        self.Text.draw(self.x + 80, self.y + 140, '%.1f' % self.C_NUM, (255, 255, 255))
