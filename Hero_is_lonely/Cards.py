@@ -6,7 +6,7 @@ from pico2d import *
 import main_state
 
 # 카드 클래스가 있는 객체
-card_size_x, card_size_y = 190, 250
+card_size_x, card_size_y = 135, 200
 
 
 class Card:
@@ -63,11 +63,11 @@ class Card:
     def draw(self):
         self.image.draw(self.x, self.y)
         draw_rectangle(*self.get_bb())
-        self.Text.draw(self.x - 100, self.y + 140, '%.1f' % self.H_HP, (255, 255, 255))
-        self.Text.draw(self.x - 70, self.y + 140, '%.1f' % self.H_ATK, (255, 255, 255))
-        self.Text.draw(self.x - 40, self.y + 140, '%.1f' % self.H_DEF, (255, 255, 255))
-        self.Text.draw(self.x - 10, self.y + 140, '%.1f' % self.M_HP, (255, 255, 255))
-        self.Text.draw(self.x + 20, self.y + 140, '%.1f' % self.M_ATK, (255, 255, 255))
-        self.Text.draw(self.x + 50, self.y + 140, '%.1f' % self.M_DEF, (255, 255, 255))
-        self.Text.draw(self.x + 80, self.y + 140, '%.1f' % self.C_NUM, (255, 255, 255))
+        #self.Text.draw(self.x - 100, self.y + 140, '%.1f' % self.H_HP, (255, 255, 255))
+        #self.Text.draw(self.x - 70, self.y + 140, '%.1f' % self.H_ATK, (255, 255, 255))
+        #self.Text.draw(self.x - 40, self.y + 140, '%.1f' % self.H_DEF, (255, 255, 255))
+        #self.Text.draw(self.x - 10, self.y + 140, '%.1f' % self.M_HP, (255, 255, 255))
+        #self.Text.draw(self.x + 20, self.y + 140, '%.1f' % self.M_ATK, (255, 255, 255))
+        #self.Text.draw(self.x + 50, self.y + 140, '%.1f' % self.M_DEF, (255, 255, 255))
+        #self.Text.draw(self.x + 80, self.y + 140, '%.1f' % self.C_NUM, (255, 255, 255))
 

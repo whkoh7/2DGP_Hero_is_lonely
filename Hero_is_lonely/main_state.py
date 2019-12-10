@@ -23,10 +23,11 @@ font = None
 cards = []
 monster = None
 background = None
-ui=None
+ui = None
 mouse = None
 deck = None
 hand = None
+
 
 def collide(a, b):
     # fill here
@@ -64,8 +65,8 @@ def enter():
     game_world.add_object(background, 0)
 
     global ui
-    ui=Ui_Class()
-    game_world.add_object(ui,0)
+    ui = Ui_Class()
+    game_world.add_object(ui, 0)
 
     global mouse
     mouse = Mouse()
@@ -74,7 +75,7 @@ def enter():
 
     global hand
     hand = Hand()
-    game_world.add_object(hand,1)
+    game_world.add_object(hand, 1)
     hand.hand_init()
     pass
 
@@ -86,8 +87,10 @@ def get_hero():
 def get_monster():
     return monster
 
+
 def get_cards():
     return cards
+
 
 def exit():
     game_world.clear()
@@ -130,6 +133,9 @@ def update():
             card.click()
             if mouse.Down:
                 card.del_card()
+                if card.C_NUM > 0:
+                    monster.hit = True
+                    monster.velocity = 1
         else:
             card.click_up()
 

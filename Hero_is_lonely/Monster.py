@@ -17,12 +17,24 @@ class Monster_Class:
         self.DEF = 30
         self.Text = load_font('ALGER.TTF', 30)
         self.tick=0
+        self.hit = False
         pass
 
     def add_event(self, event):
         pass
 
+    def monster_act(self):
+        pass
+
     def update(self):
+        if self.hit is True:
+            print('hit')
+            self.x += self.velocity
+            if self.x >1130:
+                self.velocity = -1
+            if self.x <=1080 and self.velocity is -1 :
+                self.x, self.velocity = 1080, 0
+                self.hit = False
         self.tick+=1
         if self.tick>100:
             self.frame = (self.frame + 1) % 2
