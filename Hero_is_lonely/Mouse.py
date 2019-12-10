@@ -15,4 +15,4 @@ class Mouse():
         pass
 
     def draw(self):
-        draw_rectangle(*self.get_bb())
+        pass
